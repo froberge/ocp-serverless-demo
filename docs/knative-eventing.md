@@ -50,7 +50,7 @@ Par défaut les channel Knative sont InMemory, donc on doit lui dire de le mettr
     __Validation__
     Le channel Knative
     ```
-     oc get -n demo-serverless channels
+    oc get -n demo-serverless channels
      ```
      ```
      NAME           URL                                                                AGE     READY   REASON
@@ -59,11 +59,11 @@ Par défaut les channel Knative sont InMemory, donc on doit lui dire de le mettr
 
     Le channel kafka
     ```
-     oc get -n demo-serverless kafkachannels
-     ```
-     ```
-        NAME           READY   REASON   URL                                                                AGE
-        my-events-ch   True             http://my-events-ch-kn-channel.demo-serverless.svc.cluster.local   7m35s
+    oc get -n demo-serverless kafkachannels
+    ```
+    ```
+    NAME           READY   REASON   URL                                                                AGE
+    my-events-ch   True             http://my-events-ch-kn-channel.demo-serverless.svc.cluster.local   7m35s
     ```
 
     Le topic
@@ -114,11 +114,11 @@ On sait maintenant que notre infrastructure fonctionne, on peut maintenant conne
 * Tester
     ```
     oc -n mykafka run kafka-producer -ti \
-    --image=quay.io/strimzi/kafka:0.26.1-kafka-3.0.0 \
-    --rm=true --restart=Never \
-    -- bin/kafka-console-producer.sh\
-    --broker-list my-cluster-kafka-bootstrap:9092 \
-    --topic my-topic
+     --image=quay.io/strimzi/kafka:0.26.1-kafka-3.0.0 \
+     --rm=true --restart=Never \
+     -- bin/kafka-console-producer.sh \
+     --broker-list my-cluster-kafka-bootstrap:9092 \
+     --topic my-topic
     ```
     
     _Au prompt on peut rentrer les messages qu'on l’on veut._
